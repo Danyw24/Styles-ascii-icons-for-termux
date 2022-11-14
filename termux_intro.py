@@ -31,14 +31,14 @@ class ascii_images:
                 `--..#####..--'
 
 
-     ______    ___  ____   ___ ___  __ __  __ __ 
-    |      T  /  _]|    \ |   T   T|  T  T|  T  T
-    |      | /  [_ |  D  )| _   _ ||  |  ||  |  |
-    l_j  l_jY    _]|    / |  \_/  ||  |  |l_   _j
-      |  |  |   [_ |    \ |   |   ||  :  ||     |
-      |  |  |     T|  .  Y|   |   |l     ||  |  |
-      l__j  l_____jl__j\_jl___j___j \__,_j|__j__|
-                                             
+ ______    ___  ____   ___ ___  __ __  __ __ 
+|      T  /  _]|    \ |   T   T|  T  T|  T  T
+|      | /  [_ |  D  )| _   _ ||  |  ||  |  |
+l_j  l_jY    _]|    / |  \_/  ||  |  |l_   _j
+  |  |  |   [_ |    \ |   |   ||  :  ||     |
+  |  |  |     T|  .  Y|   |   |l     ||  |  |
+  l__j  l_____jl__j\_jl___j___j \__,_j|__j__|
+                                         
 
     """
     skull2 =  """
@@ -109,7 +109,7 @@ try:
     import socket
     import os, subprocess
     from time import sleep
-    import time
+    import alive_progress
 
 except Exception:
     if Exception == KeyError:
@@ -129,7 +129,15 @@ def animation_1():
     
     img_num = random.randint(0,len(images))
     os.system("clear")
-    print(images[img_num - 1])
+    print(ascii_images.bomb)
+    sleep(2)
+
+    with alive_progress.alive_bar(100, dual_line=True,  title='Loading') as bar:
+        for c in range(100):
+            sleep(0.05)
+            bar()
+
+        
 
 
 
