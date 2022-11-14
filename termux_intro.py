@@ -73,26 +73,22 @@ class icons:
     ask = "\033[36m[\033[39m?\033[36m]\033[39m"
 
 class fg:
-    BLACK   = '\033[30m'
-    RED     = '\033[31m'
-    GREEN   = '\033[32m'
-    YELLOW  = '\033[33m'
-    BLUE    = '\033[34m'
-    MAGENTA = '\033[35m'
-    CYAN    = '\033[36m'
-    WHITE   = '\033[37m'
-    RESET   = '\033[39m'
+    black="\033[0;30m"
+    red="\033[0;31m"
+    bred="\033[1;31m"
+    green="\033[0;32m"
+    bgreen="\033[1;32m"
+    yellow="\033[0;33m"
+    byellow="\033[1;33m"
+    blue="\033[0;34m"
+    bblue="\033[1;34m"
+    purple="\033[0;35m"
+    bpurple="\033[1;35m"
+    cyan="\033[0;36m"
+    bcyan="\033[1;36m"
+    white="\033[0;37m"
+    nc="\033[00m"
 
-class bg:
-    BLACK   = '\033[40m'
-    RED     = '\033[41m'
-    GREEN   = '\033[42m'
-    YELLOW  = '\033[43m'
-    BLUE    = '\033[44m'
-    MAGENTA = '\033[45m'
-    CYAN    = '\033[46m'
-    WHITE   = '\033[47m'
-    RESET   = '\033[49m'
 
 class style:
     BRIGHT    = '\033[1m'
@@ -132,7 +128,7 @@ def animation_1():
             sleep(0.05)
             bar()
     os.system("clear")
-    print(f"{bg.GREEN} Host: {hostname} address: {ip[2]} {bg.RESET}")
+    print(f"{fg.bgreen} Host: {hostname} address: {ip[2]} {fg.nc}")
         
 
 
