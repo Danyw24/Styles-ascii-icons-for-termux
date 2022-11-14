@@ -30,7 +30,6 @@ class ascii_images:
              `._###############_,'                 
                 `--..#####..--'
 
-
  ______    ___  ____   ___ ___  __ __  __ __ 
 |      T  /  _]|    \ |   T   T|  T  T|  T  T
 |      | /  [_ |  D  )| _   _ ||  |  ||  |  |
@@ -39,7 +38,6 @@ l_j  l_jY    _]|    / |  \_/  ||  |  |l_   _j
   |  |  |     T|  .  Y|   |   |l     ||  |  |
   l__j  l_____jl__j\_jl___j___j \__,_j|__j__|
                                          
-
     """
     skull2 =  """
          .... NO! ...                  ... MNO! ...
@@ -126,17 +124,15 @@ def get_ip_address():
 
 def animation_1():
     hostname, ip = get_ip_address()
-    
     img_num = random.randint(0,len(images))
     os.system("clear")
     print(ascii_images.bomb)
-    sleep(2)
-
     with alive_progress.alive_bar(100, dual_line=True,  title='Loading') as bar:
         for c in range(100):
             sleep(0.05)
             bar()
-
+    os.system("clear")
+    print(f"{bg.GREEN} Host: {hostname} address: {ip[2]} {bg.RESET}")
         
 
 
