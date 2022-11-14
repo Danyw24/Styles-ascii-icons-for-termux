@@ -6,37 +6,37 @@
 class ascii_images:
     
     bomb = """
-                         . . .                         
-                      \|/                          
-                    `--+--'                        
-                      /|\                          
-                     ' | '                         
-                       |                           
-                       |                           
-                   ,--'#`--.                       
-                   |#######|                       
-                _.-'#######`-._                    
-             ,-'###############`-.                 
-           ,'#####################`,               
-          /#########################\              
-         |###########################|             
-        |#############################|            
-        |#############################|            
-        |#############################|            
-        |#############################|            
-         |###########################|             
-          \#########################/              
-           `.#####################,'               
-             `._###############_,'                 
-                `--..#####..--'
+                                 . . .                         
+                              \|/                          
+                            `--+--'                        
+                              /|\                          
+                             ' | '                         
+                               |                           
+                               |                           
+                           ,--'#`--.                       
+                           |#######|                       
+                        _.-'#######`-._                    
+                     ,-'###############`-.                 
+                   ,'#####################`,               
+                  /#########################\              
+                 |###########################|             
+                |#############################|            
+                |#############################|            
+                |#############################|            
+                |#############################|            
+                 |###########################|             
+                  \#########################/              
+                   `.#####################,'               
+                     `._###############_,'                 
+                        `--..#####..--'
 
- ______    ___  ____   ___ ___  __ __  __ __ 
-|      T  /  _]|    \ |   T   T|  T  T|  T  T
-|      | /  [_ |  D  )| _   _ ||  |  ||  |  |
-l_j  l_jY    _]|    / |  \_/  ||  |  |l_   _j
-  |  |  |   [_ |    \ |   |   ||  :  ||     |
-  |  |  |     T|  .  Y|   |   |l     ||  |  |
-  l__j  l_____jl__j\_jl___j___j \__,_j|__j__|
+         ______    ___  ____   ___ ___  __ __  __ __ 
+        |      T  /  _]|    \ |   T   T|  T  T|  T  T
+        |      | /  [_ |  D  )| _   _ ||  |  ||  |  |
+        l_j  l_jY    _]|    / |  \_/  ||  |  |l_   _j
+          |  |  |   [_ |    \ |   |   ||  :  ||     |
+          |  |  |     T|  .  Y|   |   |l     ||  |  |
+          l__j  l_____jl__j\_jl___j___j \__,_j|__j__|
                                          
     """
     skull2 =  """
@@ -104,6 +104,7 @@ try:
     import os, subprocess
     from time import sleep
     import alive_progress
+    from requests import get
 
 except Exception:
     if Exception == KeyError:
@@ -113,22 +114,29 @@ except Exception:
         print(icons.error,"An error has ocurred with dependences, Please, verify your modules with \033[34mpip freeze");
         
 
+
 def get_ip_address():
-    hostname = socket.gethostname()
-    ip_address = socket.gethostbyaddr(hostname)
-    return hostname, ip_address
+    ip = get('https://api.ipify.org').text
+    print(ip)
+    host = socket.gethostname()
+    return host, ip
+
+
 
 def animation_1():
-    hostname, ip = get_ip_address()
-    img_num = random.randint(0,len(images))
+    hostname,ip = get_ip_address()
     os.system("clear")
     print(ascii_images.bomb)
+
     with alive_progress.alive_bar(100, dual_line=True,  title='Loading') as bar:
         for c in range(100):
             sleep(0.05)
             bar()
     os.system("clear")
-    print(f"{fg.bgreen} Host: {hostname} address: {ip[2]} {fg.nc}")
+
+    #second pard
+
+    print(f"        {fg.bgreen} Host: {hostname} address: {ip[2]} {fg.nc}")
         
 
 
