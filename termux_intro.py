@@ -99,7 +99,7 @@ class style:
 dependences = ["socket","time","os","subprocess","random"]
 images = [ascii_images.bomb, ascii_images.skull2]
 try:
-
+    import threading
     import os
     from time import sleep
     import alive_progress
@@ -121,15 +121,18 @@ def get_ip_address():
 
 
 def animation_1():
-    ip = get_ip_address()
     os.system("clear")
     print(ascii_images.bomb)
-
+    
     with alive_progress.alive_bar(100, dual_line=True,  title='Loading') as bar:
         for c in range(100):
             sleep(0.05)
             bar()
+
+    ip = get_ip_address()
     os.system("clear")
+
+    
 
     #second pard
 
@@ -139,6 +142,7 @@ def animation_1():
 
 
 if __name__ == "__main__":
-    animation_1()
-    
-    
+    tr1 = threading.Thread(target=get_ip_address) 
+    tr2 = threading.Thread(target=animation_1)
+    tr1.start()
+    tr2.start()    
