@@ -117,14 +117,12 @@ except Exception:
 
 def get_ip_address():
     ip = get('https://api.ipify.org').text
-    print(ip)
-    host = socket.gethostname()
-    return host, ip
+    return ip
 
 
 
 def animation_1():
-    hostname,ip = get_ip_address()
+    ip = get_ip_address()
     os.system("clear")
     print(ascii_images.bomb)
 
@@ -136,7 +134,7 @@ def animation_1():
 
     #second pard
 
-    print(f"        {fg.bgreen} Host: {hostname} address: {ip[2]} {fg.nc}")
+    print(f"{fg.bgreen} [!] address: {ip} {fg.nc}")
         
 
 
