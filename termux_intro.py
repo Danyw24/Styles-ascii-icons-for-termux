@@ -99,9 +99,8 @@ class style:
 dependences = ["socket","time","os","subprocess","random"]
 images = [ascii_images.bomb, ascii_images.skull2]
 try:
-    import random
-    import socket
-    import os, subprocess
+
+    import os
     from time import sleep
     import alive_progress
     from requests import get
