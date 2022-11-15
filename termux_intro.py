@@ -99,6 +99,7 @@ class style:
 dependences = ["socket","time","os","subprocess","random"]
 images = [ascii_images.bomb, ascii_images.skull2]
 try:
+    from getmac import get_mac_address 
     import threading
     import os
     from time import sleep
@@ -130,13 +131,23 @@ def animation_1():
             bar()
 
     ip = get_ip_address()
+    mac = get_mac_address()
     os.system("clear")
 
     
 
     #second pard
 
-    print(f"{fg.bgreen} [!] address: {ip} {fg.nc}")
+    print(f"""{fg.bgreen} 
+    
+    [!] Developed by Danyw24 (on github!!)
+    +-------------+--------------------------------+
+    | IP ADDRESS  | {ip}                           |
+    +-------------+--------------------------------+
+    | MAC ADDRESS | {mac}                          |
+    +-------------+--------------------------------+
+    
+    """)
         
 
 
